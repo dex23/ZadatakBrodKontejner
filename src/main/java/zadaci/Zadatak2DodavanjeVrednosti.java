@@ -33,18 +33,18 @@ public class Zadatak2DodavanjeVrednosti {
             Kontejner k1 = new Kontejner("KP1", "Namestaj", 100);
             k1.setBrod(b1);
             kontejnerDao.create(k1);
-            Kontejner k2 = new Kontejner("KP1", "Banane", 1000.5);
+            Kontejner k2 = new Kontejner("KP2", "Banane", 1000.5);
             k2.setBrod(b1);
-            kontejnerDao.create(k1);
-            Kontejner k3 = new Kontejner("KP1", "Morski proizvodi", 200.7);
+            kontejnerDao.create(k2);
+            Kontejner k3 = new Kontejner("KP3", "Morski proizvodi", 200.7);
             k3.setBrod(b1);
-            kontejnerDao.create(k1);
-            Kontejner k4 = new Kontejner("KP1", "Mercedes", 500.4);
+            kontejnerDao.create(k3);
+            Kontejner k4 = new Kontejner("KP4", "Mercedes", 500.4);
             k4.setBrod(b2);
-            kontejnerDao.create(k1);
-            Kontejner k5 = new Kontejner("KP1", "Klavir", 100);
+            kontejnerDao.create(k4);
+            Kontejner k5 = new Kontejner("KP5", "Klavir", 100);
             k5.setBrod(b2);
-            kontejnerDao.create(k1);
+            kontejnerDao.create(k5);
 
             List<Brod> brod = brodDao.queryForAll();
             for(Brod b:brod)
