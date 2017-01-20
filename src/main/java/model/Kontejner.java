@@ -11,25 +11,29 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "kontejner")
 public class Kontejner {
     public static final String POLJE_OZNAKA = "oznaka";
-    public static final String POLJE_NAZIV = "naziv";
+    public static final String POLJE_OPIS = "opis";
+    public static final String POLJE_TEZINA = "tezina";
 
     @DatabaseField(generatedId = true)
     private int id;
     @DatabaseField(columnName = POLJE_OZNAKA)
     private String oznaka;
-    @DatabaseField(columnName = POLJE_NAZIV)
-    private String naziv;
+    @DatabaseField(columnName = POLJE_OPIS)
+    private String opis;
+    @DatabaseField(columnName = POLJE_TEZINA)
+    private double tezina;
 
-    @ForeignCollectionField(foreignFieldName = "brod")
-    private ForeignCollection<Kontejner> kontejner;
+    @DatabaseField(foreign = true,foreignAutoRefresh = false)
+    private Brod brod;
 
     public Kontejner(){
 
     }
 
-    public Kontejner(String oznaka, String naziv) {
+    public Kontejner(String oznaka, String opis, double tezina) {
         this.oznaka = oznaka;
-        this.naziv = naziv;
+        this.opis = opis;
+        this.tezina = tezina;
     }
 
     public int getId() {
@@ -40,12 +44,16 @@ public class Kontejner {
         return oznaka;
     }
 
-    public String getNaziv() {
-        return naziv;
+    public String getOpis() {
+        return opis;
     }
 
-    public ForeignCollection<Kontejner> getKontejner() {
-        return kontejner;
+    public double getTezina() {
+        return tezina;
+    }
+
+    public Brod getBrod() {
+        return brod;
     }
 
     public void setId(int id) {
@@ -56,22 +64,25 @@ public class Kontejner {
         this.oznaka = oznaka;
     }
 
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
+    public void setOpis(String opis) {
+        this.opis = opis;
     }
 
-    public void setKontejner(ForeignCollection<Kontejner> kontejner) {
-        this.kontejner = kontejner;
+    public void setTezina(double tezina) {
+        this.tezina = tezina;
+    }
+
+    public void setBrod(Brod brod) {
+        this.brod = brod;
     }
 
     @Override
     public String toString() {
-        return "Brod{" +
+        return "Kontejner{" +
                 "id=" + id +
                 ", oznaka='" + oznaka + '\'' +
-                ", naziv='" + naziv + '\'' +
+                ", opis='" + opis + '\'' +
+                ", tezina=" + tezina +
                 '}';
     }
-
-
 }
