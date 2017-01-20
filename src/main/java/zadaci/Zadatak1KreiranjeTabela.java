@@ -19,7 +19,7 @@ public class Zadatak1KreiranjeTabela {
             connectionSource = new JdbcConnectionSource("jdbc:sqlite:brodKontejner.db");
             TableUtils.dropTable(connectionSource, Kontejner.class,true);
             TableUtils.dropTable(connectionSource, Brod.class,true);
-            
+
             TableUtils.createTable(connectionSource, Brod.class);
             TableUtils.createTable(connectionSource, Kontejner.class);
         }catch (SQLException e) {
